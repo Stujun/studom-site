@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    font-family: 'nanumsquare';
+    background: white;
+    padding-top: 100px;
+}
+
+.navbar {
+  background-color: #ffffff;
+  padding: 20px 40px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  opacity: 0.8;
+  transition: opacity 0.8s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.nav-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.navbar li {
+  flex-shrink: 0;
+}
+
+.navbar a {
+  color: rgb(197, 197, 197);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s;
+  white-space: nowrap;
+}
+
+.navbar a:hover {
+  color: #a7a7a7;
+}
+
+.nav-right {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .nav-right {
+    display: none;
+  }
+}
+
+.product-search {
+    display: flex;
+    margin-bottom: 20px;
+}
+.product-search input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+}
+.product-search button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    background-color: #eee;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+}
+
+.product-list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.product-card {
+    width: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.product-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+.product-card .tag {
+    background-color: #c9c9c9;
+    color: white;
+    font-size: 12px;
+    padding: 4px;
+}
+.product-card h3 {
+    margin: 10px 0 5px;
+}
+.product-card p {
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.product-card {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.product-card:hover {
+    transform: scale(1.02);
+}

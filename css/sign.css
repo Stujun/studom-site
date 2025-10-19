@@ -1,0 +1,153 @@
+body {
+  margin: 0;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.signup-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border-radius: 16px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.signup-container h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #222;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.signup-form input {
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.signup-form input:focus {
+  outline: none;
+  border-color: #3182F6;
+}
+
+.signup-form button {
+  padding: 14px;
+  background-color: #3182F6;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signup-form button:hover {
+  background-color: #2563eb;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.login-link a {
+  color: #3182F6;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back-button {
+  font-size: 24px;
+  text-decoration: none;
+  color: #333;
+  display: inline-block;
+  margin-bottom: 12px;
+  transition: color 0.2s;
+}
+
+.back-button:hover {
+  color: #3182F6;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.password-conditions div {
+  font-size: 14px;
+  margin: 4px 0;
+  color: #555;
+}
+
+.password-conditions .valid {
+  color: green;
+}
+
+.password-conditions .invalid {
+  color: red;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 24px 0 16px;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+}
+
+.divider:not(:empty)::before {
+  margin-right: 8px;
+}
+
+.divider:not(:empty)::after {
+  margin-left: 8px;
+}
+
+.google-login-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: white;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.google-login-btn:hover {
+  background-color: #f9f9f9;
+  border-color: #aaa;
+}
+
+.google-login-btn img {
+  width: 20px;
+  height: 20px;
+}

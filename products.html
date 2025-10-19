@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제품</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-center">
+            <ul>
+                <li><a href="/">홈</a></li>
+                <li><a href="/blogs">블로그</a></li>
+                <li><a href="/products">제품</a></li>
+                <li><a href="/social">소셜 링크</a></li>
+            </ul>
+        </div>
+        
+        <div class="nav-right"></div>
+    </nav>
+<div class="product-search">
+    <input id="productSearch" type="text" placeholder="검색어를 입력하세요">
+</div>
+
+    <div class="product-list" id="productList"></div>
+    <script type="module" src="/js/Product.js"></script>
+    <script type="module" src="/js/authState.js"></script>
+</body>
+</html>

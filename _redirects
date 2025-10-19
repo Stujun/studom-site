@@ -1,0 +1,23 @@
+https://studom.netlify.app/*  https://studom.kro.kr/:splat  301!
+
+/buy    /buy.html   200
+
+/download   /download.html     200
+
+/products  /products.html     200
+
+/social     /social.html    200
+
+/load     /load.html     200
+
+/login      /signin.html     200
+
+/signin      /signup.html     200
+
+/blogs       /blogs.html      200
+
+/blog      /blog.html       200
+
+/account      /account.html       200
+
+/discord      /callback.html       200

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>디스코드 인증</title>
+  <link rel="stylesheet" href="/css/sign.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="signup-container">
+    <a href="/" class="back-button">←</a>
+    <h2>회원가입</h2>
+    <form class="signup-form">
+      <input type="email" id="signemail" value="noreply@studom.netlify.app" readonly style="background-color: #f1f1f1; cursor: default;">
+      <input type="password" id="pw" value="12345678" readonly style="background-color: #f1f1f1; cursor: default;">
+      <div class="password-conditions" id="password-conditions">
+        <div id="lenCheck">✅ 8~20자 길이</div>
+        <div id="letterCheck">✅ 영문자 포함</div>
+        <div id="numberCheck">✅ 숫자 포함</div>
+        <div id="specialCheck">✅ 특수문자 포함</div>
+      </div>
+      <div class="error-message">만약 아무 반응 없거나 이메일이 다르다면 다시시도 하십시오.</div>
+      <button disabled>가입하기</button>
+    </form>
+    <div class="divider"><span>또는</span></div>
+    <button id="googlepopupbtn" class="google-login-btn" disabled>
+      <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" />
+      구글로 로그인
+    </button>
+    <p disabled class="login-link">이미 계정이 있으신가요? <a>로그인</a></p>
+  </div>
+  <script type="module" src="js/callback.js"></script>
+</body>
+</html>
