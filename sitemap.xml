@@ -13,7 +13,7 @@
   <!-- 상품 페이지 -->
   <url>
     <loc>https://studom.kro.kr/products</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -21,7 +21,7 @@
   <!-- 소셜 페이지 -->
   <url>
     <loc>https://studom.kro.kr/social</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -29,7 +29,7 @@
   <!-- 블로그 페이지 -->
   <url>
     <loc>https://studom.kro.kr/blogs</loc>
-    <lastmod>2025-10-19</lastmod>
+    <lastmod>2025-10-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
