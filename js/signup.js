@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-analytics.js";
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, signInWithPopup, GoogleAuthProvider} from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, signInWithPopup, GoogleAuthProvider, signOut } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAwalsRxEy05oqGwn--H9kSvx0jJZ5LNLc",
@@ -34,19 +34,19 @@ function updateCondition(element, isValid, label) {
 }
 
 function FinSignup(user) {
-  console.log('스튜덤 샵 | 회원가입 완료');
-
   localStorage.setItem('uid', user.uid);
-  signOut(auth)
-  window.location.href = "/login";
+  signOut(auth).then(() => {
+    window.location.href = "/login";
+  }).catch(() => {
+    window.location.href = "/login";
+  });
 }
-
 
 function validatePassword(pw) {
   const isValidLength = pw.length >= 8 && pw.length <= 20;
   const hasLetter = /[a-zA-Z]/.test(pw);
   const hasNumber = /[0-9]/.test(pw);
-  const hasSpecial = /[!@#$%^&*()+,.?":{}|<>]/.test(pw);
+  const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(pw);
 
   updateCondition(lenCheck, isValidLength, "8~20자 길이");
   updateCondition(letterCheck, hasLetter, "영문자 포함");
@@ -60,8 +60,7 @@ function validatePassword(pw) {
 }
 
 pwInput.addEventListener('input', () => {
-  const pw = pwInput.value;
-  validatePassword(pw);
+  validatePassword(pwInput.value);
 });
 
 document.querySelector('.signup-form').addEventListener('submit', (event) => {
@@ -78,42 +77,24 @@ document.querySelector('.signup-form').addEventListener('submit', (event) => {
       sendEmailVerification(user)
         .then(() => {
           alert("이메일 인증 메일을 확인해주세요.");
-          FinSignup(user)
+          FinSignup(user);
         })
-        .catch(() => {
-          alert("이메일 인증 메일을 보내는 데 실패했습니다. Studom 고객센터에 문의하세요.");
+        .catch((error) => {
+          console.error(error.code);
+          alert("인증 메일 발송 실패: " + error.code);
+          FinSignup(user);
         });
     })
     .catch((error) => {
       const errorCode = error.code;
-      console.error(errorCode)
+      console.error(errorCode);
       const friendlyMessage = {
         "auth/email-already-in-use": "이미 사용 중인 이메일입니다.",
         "auth/invalid-email": "유효하지 않은 이메일 형식입니다.",
-        "auth/operation-not-allowed": "이메일/비밀번호 가입이 비활성화되어 있습니다.",
+        "auth/operation-not-allowed": "이메일 가입이 비활성화되어 있습니다.",
         "auth/weak-password": "비밀번호가 너무 약합니다.",
-      }[errorCode] || "회원가입 중 오류가 발생했습니다.";
+        "auth/too-many-requests": "요청이 너무 많습니다. 잠시 후 다시 시도해주세요."
+      }[errorCode] || "오류 발생: " + errorCode;
       errorMessageElement.innerHTML = `<div>${friendlyMessage}</div>`;
     });
 });
-
-// document.getElementById('googlepopupbtn').addEventListener('click',() => {
-//     signInWithPopup(auth, provider)
-//   .then((result) => {
-//     const credential = GoogleAuthProvider.credentialFromResult(result);
-//     const token = credential.accessToken;
-//     const user = result.user;
-//     const additionalInfo = getAdditionalUserInfo(result);
-//     if (additionalInfo?.isNewUser) {
-//       FinSignup(user);
-//     } else {
-//         console.log('스튜덤 샵 | 로그인 완료')
-//         window.location.href = "/";
-//     }
-//   }).catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//     const email = error.customData.email;
-//     const credential = GoogleAuthProvider.credentialFromError(error);
-//   });
-// })
