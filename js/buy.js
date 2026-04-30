@@ -19,16 +19,9 @@ const auth = getAuth();
 
 // 로그인 및 Discord ID 확인
 onAuthStateChanged(auth, async (user) => {
-  if (!user) {
-    alert("상품을 구매하기 전, 로그인을 해주셔야 합니다.")
-  } else {
-    // Discord ID가 있는지 확인
+  if (user) {
     const discordRef = ref(db, `UserDiscordOAuth/${user.uid}/discordUserId`);
     const snapshot= await get(discordRef);
-
-    if (!snapshot.exists() || !snapshot.val()) {
-      alert("상품을 구매하기 전, Discord 인증을 해주셔야 합니다.")
-    }
     const discordId = snapshot.val();
   }
 
