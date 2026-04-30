@@ -20,7 +20,7 @@ const auth = getAuth();
 // 로그인 및 Discord ID 확인
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
-    window.location.href = "/login"; // 로그인 안 했으면 리다이렉트
+    alert("상품을 구매하기 전, 로그인을 해주셔야 합니다.")
     return;
   }
 
@@ -29,7 +29,7 @@ onAuthStateChanged(auth, async (user) => {
    const snapshot= await get(discordRef);
 
   if (!snapshot.exists() || !snapshot.val()) {
-    window.location.href = "/login"; // Discord ID 없으면 리다이렉트
+    alert("상품을 구매하기 전, Discord 인증을 해주셔야 합니다.")
     return;
   }
 
