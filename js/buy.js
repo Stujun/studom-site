@@ -54,6 +54,18 @@ onAuthStateChanged(auth, async (user) => {
         };
 
         document.getElementById('buy-product').addEventListener('click', async () => {
+          if (!user) {
+           alert("상품을 구매하기 전, 로그인을 해주셔야 합니다.")
+           return;
+          }
+          const discordRef = ref(db, `UserDiscordOAuth/${user.uid}/discordUserId`);
+          const snapshot= await get(discordRef);
+
+          if (!snapshot.exists() || !snapshot.val()) {
+            alert("상품을 구매하기 전, Discord 인증을 해주셔야 합니다.")
+            return;
+          }
+
           if (product.price === "무료" || product.price === 0 || product.price === "0") {
             await push(ref(db, "dmRequests"), {
               productId: productId,
