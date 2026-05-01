@@ -98,3 +98,24 @@ document.querySelector('.signup-form').addEventListener('submit', (event) => {
       errorMessageElement.innerHTML = `<div>${friendlyMessage}</div>`;
     });
 });
+
+// document.getElementById('googlepopupbtn').addEventListener('click',() => {
+//     signInWithPopup(auth, provider)
+//   .then((result) => {
+//     const credential = GoogleAuthProvider.credentialFromResult(result);
+//     const token = credential.accessToken;
+//     const user = result.user;
+//     const additionalInfo = getAdditionalUserInfo(result);
+//     if (additionalInfo?.isNewUser) {
+//       FinSignup(user);
+//     } else {
+//         console.log('스튜덤 샵 | 로그인 완료')
+//         window.location.href = "/";
+//     }
+//   }).catch((error) => {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//     const email = error.customData.email;
+//     const credential = GoogleAuthProvider.credentialFromError(error);
+//   });
+// })
