@@ -19,11 +19,14 @@ const auth = getAuth();
 
 // 로그인 및 Discord ID 확인
 onAuthStateChanged(auth, async (user) => {
-  if (user) {
-    const discordRef = ref(db, `UserDiscordOAuth/${user.uid}/discordUserId`);
-    const snapshot= await get(discordRef);
-    const discordId = snapshot.val();
+  async function getDiscordId(user) {
+      if (!user) return null;
+      const discordRef = ref(db, `UserDiscordOAuth/${user.uid}/discordUserId`);
+      const snapshot = await get(discordRef);
+      return snapshot.val();
   }
+
+  const discordId = await getDiscordId(user);
 
   // 상품 정보 가져오기
   const params = new URLSearchParams(window.location.search);
